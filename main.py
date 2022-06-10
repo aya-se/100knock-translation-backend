@@ -5,12 +5,12 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://100knock-translation.vercel.app/"
+    "https://100knock-translation.vercel.app"
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
