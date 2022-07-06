@@ -34,7 +34,7 @@ def Hello():
 
 @app.post("/api/translation/{text}")
 def Translate(text: str):
-    text = text.replace(",", "、").replace(".", "。")
+    text = text.replace(",", "、").replace("，", "、").replace(".", "。").replace("．", "。").replace(" ", "").replace("　","")
     ja = " ".join(spja.EncodeAsPieces(text))
     stream = os.popen(f"echo {ja} | CUDA_VISIBLE_DEVICES=1 fairseq-interactive {url}/data-bin-domains \
                         --input - \
